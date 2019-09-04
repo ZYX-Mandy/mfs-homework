@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+        <title>表单二</title>
+    </head>
+    <body>
+        <form action="/getInfo" method="get">
+            <div class="username">
+                    <label for="">用户名：</label>
+                    <input type="text" name="username" placeholder="请输入用户名" autofocus required/>
+                </div>
+                <br/>
+                <div class="password">
+                    <label>密&nbsp&nbsp&nbsp码：</label>
+                    <input type="password" name="password" required/>
+                </div>
+                <br/>
+                <div class="email">
+                    邮&nbsp&nbsp&nbsp箱：<input type="email" name="email" required/>
+                </div>
+                <br/>
+                <div>
+                    数&nbsp&nbsp&nbsp字：<input type="number" name="number" min="0" max="100" step="2"/>
+                </div>
+                <div class="city">
+                    <input list="city" name="city"/>
+                    <datalist id="city">
+                        <option value="北京">北京</option>
+                        <option value="上海">上海</option>
+                        <option value="广州">广州</option>
+                        <option value="深圳">深圳</option>
+                    </datalist>
+                </div>
+                <div class="button">
+                        <button type="submit">Submit</button>
+                        &nbsp;
+                        <button type="reset">Reset</button>
+                    </div>
+        </form>
+    </body>
+</html>
