@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>iframe</title>
+        <style>
+                body{
+                  margin: 0
+                }
+                *{
+                  box-sizing: border-box
+                }
+                .left {
+                  float: left;
+                  width: 100px;
+                }
+                .left a{
+                  display: block
+                }
+                .right {
+                  float: left;
+                  width: calc(100% - 102px);
+                  height: 100vh
+                }
+              </style>
+    </head>
+    <body>
+            <div class="left">
+                    <a href="http://www.baidu.com" target="iframe">百度</a>
+                    <a href="http://www.weibo.com" target="iframe">微博</a>
+                    <a href="https://www.bilibili.com" target="iframe">哔哩哔哩</a>
+                  </div>
+                  <iframe name="iframe" src="http://www.baidu.com" class="right"></iframe>
+    </body>
+</html>
