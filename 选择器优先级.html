@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        *{
+            color:red;
+        }
+        p{
+            color:orange;
+        }
+
+        [value=div1]{
+            color:yellow;
+        }
+        p:nth-child(5){
+            color:green;
+        }
+        .cls2{
+            color:cyan;
+        }
+        #id_p0,#id_p1,#id_p2{
+            color:blue;
+        }
+        .cls1{
+            color:pink!important;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div>
+        <p class="cls1" style="color:blueviolet" value="div1" id="id_p0">p0</p>
+        <p class="cls2" style="color:blueviolet" value="div1" id="id_p1">p1</p>
+        <p class="cls2" value="div1" id="id_p2">p2</p>
+        <p class="cls2" value="div1">p3</p>
+        <p value="div1">p4</p>
+        <p value="div1">p5</p>
+        <p>p6</p>
+    </div>
+    <div>
+        <ul>
+            <li>l1</li>
+            <li>l2</li>
+            <li>l3</li>
+        </ul>
+    </div>
+</body>
+</html>
