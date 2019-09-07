@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>雪碧图</title>
+    <style>
+         a {
+        display:block; width:200px; height:65px; line-height:65px; /*定义状态*/
+        text-indent:-2015px; /*隐藏文字*/
+        background-image:url(https://gss3.bdstatic.com/7Po3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268/sign=ca0658873901213fcf3349da6ce736f8/5fdf8db1cb1349544e35843a564e9258d1094a40.jpg); /*定义背景图片*/
+        background-position:0 0; /*定义普通状态，此时图像显示的是顶上的部分*/
+        }
+        a:hover {
+            background-position:0 -66px; /*定义hover状态，此时显示的为中间部分，向下取负值*/
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <a class="button" href="https://gss3.bdstatic.com/7Po3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268/sign=ca0658873901213fcf3349da6ce736f8/5fdf8db1cb1349544e35843a564e9258d1094a40.jpg" >链接</a>
+    </div>
+</body>
+
+</html>
