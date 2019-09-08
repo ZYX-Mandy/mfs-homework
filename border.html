@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Border</title>
+    <style>
+        p:nth-child(1){
+            /*display: inline-block;*/
+            float:left;
+            width: 0px;
+            height: 0px;
+            border: 50px solid transparent;
+            border-left-color: red;
+        }
+        p:nth-child(2){
+            /*display: inline-block;*/
+            float:left;
+            width: 0px;
+            height: 0px;
+            border: 50px solid transparent;
+            border-top-color: yellow;
+        }
+        p:nth-child(3){
+            float:left;
+            margin-right:80px;
+            width: 0px;
+            height: 0px;
+            border: 50px solid transparent;
+            border-right-color: blue;
+            /*display: inline-block;*/
+        }
+        p:nth-child(4){
+            float:left;
+            margin-right: 80px;
+            width: 0px;
+            height: 0px;
+            border: 50px solid transparent;
+            border-bottom-color: green;
+            /*display: inline-block;*/
+        }
+        .div2{
+            float:left;
+            margin-right:80px;
+            width: 0px;
+            height: 0px;
+            border: 50px solid tomato;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            border-top-color: transparent;
+            border-bottom: 86.6px solid tomato;
+        }
+        .div3{
+            float:left;
+            margin-right:80px;
+            width: 50px;
+            height: 10px;
+            border: 50px solid cyan;
+            border-left: 60px solid transparent;
+            border-right: 0px solid transparent;
+            border-top-color: transparent;
+            border-bottom: 80px solid cyan;
+        }
+        .div4{
+            float:left;
+            width: 0px;
+            height: 10px;
+            border: 50px solid blueviolet;
+            border-left: 0px solid transparent;
+            border-right: 50px solid transparent;
+            border-top-color: transparent;
+            border-bottom: 80px solid blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+    <div class="div4"></div>
+</body>
+</html>
