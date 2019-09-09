@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>圣杯布局</title>
+    <style>
+    .body{
+            display:flex;
+            min-height:100vh;
+            flex-direction:column;
+        }
+    .top,.bottom{
+        display:flex;
+        height:50px;
+        background-color: gray;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        flex:1;
+    }
+    .container{
+        display:flex;
+        height:50px;
+        justify-content: space-between;
+        margin:10px 0px;
+        flex: 1;
+    }
+    .main{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        flex:1;
+        margin-left:10px;
+        margin-right:10px;
+        background-color: blue;
+    }
+    .left,.right{
+        display:flex;
+        width:150px;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        flex:0,0,100px;
+        background-color: cyan;
+    }
+    .left{
+        order:-1;
+    }
+    .right{
+        order:1;
+    }
+    </style>
+</head>
+<body>
+    <div class="top">头部</div>
+    <div class="container">
+        <div class="left">侧边栏1固定宽度</div>
+        <div class="main">主内容栏自适应宽度</div>
+        <div class="right">侧边栏2固定宽度</div>
+    </div>
+    <div class="bottom">底部</div>
+</body>
+</html>
