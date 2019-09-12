@@ -1,0 +1,313 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+
+/*.header{
+background-image: url(https://www.golaravel.com/assets/images/header-bg.jpg);
+padding-top: 62px;
+    padding-bottom: 62px;
+    background-repeat: no-repeat;
+    background-position: center 20%;
+    background-size: cover;
+}*/
+
+.header-main {
+    background-image: url(https://www.golaravel.com/assets/images/header-bg.jpg);
+    padding-top: 62px;
+    padding-bottom: 62px;
+    background-repeat: no-repeat;
+    background-position: center 20%;
+    background-size: cover;
+    padding: 100px 0 10px 0;
+}
+
+.header-main h1 {
+    color: white;
+    font-weight: 500;
+    font-size: 42px;
+    text-align: center;
+}
+
+.docs {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 10px 0;
+}
+
+.btn-doc {
+    text-decoration-line: none;
+    color: white;
+    border: 1px solid rgb(240, 56, 49);
+    padding: 5px 10px;
+    margin: 2px;
+    font-size: 14px;
+}
+
+.link:nth-child(3) {
+    font-weight: bold;
+}
+
+.btn-doc:hover {
+    background-color: rgb(50, 50, 50);
+    border: 1px solid rgb(50, 50, 50);
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+    background-color: white;
+    border-bottom: 2px solid #e1e1e1;
+}
+
+.nav .link {
+    text-decoration-line: none;
+    color: #303030;
+    padding: 8.5px 21px;
+    font-size: 14px;
+}
+
+.nav .link:hover {
+    color: #f4645f;
+}
+
+.main {
+    background-color: #ebebeb;
+    height: 890px;
+    padding: 35px;
+}
+
+.main .container {
+    display: flex;
+    width: 1170px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #ebebeb;
+    justify-content: space-between;
+}
+
+.main .container .content {
+    height: 100%;
+    float: left;
+    width: 66.666667%;
+    position: relative;
+    min-height: 1px;
+}
+
+.post {
+    background-color: white;
+    padding: 35px;
+    margin-bottom: 35px;
+}
+
+.post .post-head {
+    text-align: center;
+}
+
+.post .post-head .post-title {
+    margin: 0;
+    font-size: 1.7em;
+    line-height: 1.2em;
+    font-weight: 400;
+    color: #303030;
+}
+
+.post .post-head .post-meta {
+    color: #959595;
+    margin: 14px 0 0;
+}
+
+.post .post-head .post-meta a {
+    color: #f4645f;
+    text-decoration-line: none;
+}
+
+.post .post-img {
+    margin-top: 30px;
+    overflow: hidden;
+}
+
+.post .post-img img {
+    width: 100%;
+    border: 0;
+}
+
+.post .post-content {
+    margin: 30px 0;
+    font: 400 18px/1.62 Georgia, Xin Gothic, Hiragino Sans GB, Droid Sans Fallback, Microsoft YaHei, sans-serif;
+    color: #303030;
+}
+
+.post .post-content p {
+    margin-top: 0;
+    margin-bottom: 1.46em;
+    margin: 0 0 10px;
+}
+
+.post .post-content a {
+    color: #f4645f;
+    text-decoration-line: none;
+}
+
+.post .post-btn .btn-read {
+    text-decoration-line: none;
+    background-color: #f4645f;
+    color: white;
+    border: 1px solid #f4645f;
+    border-radius: 2px;
+    padding: 7px 14px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.widget .post-btn .btn-read:hover {
+    background-color: #303030;
+    border: 1px solid #303030;
+}
+
+.post .post-footer {
+    margin-top: 30px;
+    border-top: 1px solid #ebebeb;
+    padding: 21px 0 0;
+}
+
+.aside {
+    height: 580px;
+    width: 30%;
+    float: left;
+}
+
+.aside .widget {
+    background-color: white;
+    padding: 21px 30px;
+    margin-bottom: 35px;
+}
+
+.widget .title {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 21px;
+    color: #303030;
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 7px;
+    margin-bottom: 21px;
+    position: relative;
+}
+
+.title::after {
+    content: "";
+    width: 90px;
+    height: 1px;
+    background-color: #f4645f;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+}
+
+.widget .community {
+    text-decoration: none;
+    color: #f4645f;
+}
+
+.widget .btn-block {
+    display: block;
+    text-decoration-line: none;
+    color: white;
+    background-color: #f4645f;
+    border: 1px solid #f4645f;
+    border-radius: 2px;
+    padding: 7px 14px;
+    margin: 5px 0;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.widget .btn-block:hover {
+    background-color: #303030;
+    border: 1px solid #303030;
+}
+
+.footer {
+    background: #202020;
+    padding: 35px 0 0;
+}
+
+.footer .footer-block {
+    display: flex;
+    justify-content: space-between;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.footer .footer-block .footer-column {
+    width: 33.33333333%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.footer-column .widget {
+    padding: 0 30px;
+    margin-bottom: 35px;
+}
+
+.footer-column .widget .title {
+    color: white;
+    border-bottom: 1px solid #303030;
+    margin-top: 0;
+    margin-bottom: 21px;
+    padding-bottom: 7px;
+    font-size: 1.5em;
+}
+
+.footer-column .widget .recent-post .recent-single-post {
+    border-bottom: 1px solid #303030;
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+}
+
+.footer-column .widget a,
+.date {
+    color: #959595;
+    text-decoration-line: none;
+}
+
+.footer-column .widget .date {
+    color: #646464;
+    font-size: 13px;
+    text-decoration-line: none;
+}
+
+.footer-column .widget .recent-post a:hover {
+    color: #f4645f;
+}
+
+.footer-column .widget .tag-cloud a {
+    border: 1px solid #202020;
+    padding: 2px 7px;
+    color: #959595;
+    display: inline-block;
+    margin: 0 7px 7px 0;
+}
+
+.footer-column .widget .tag-cloud a:hover {
+    color: white;
+    background-color: #f4645f;
+    border: 1px solid #f4645f;
+}
+
+hr {
+    margin: 1em 0;
+    border: 1px solid #303030;
+}
