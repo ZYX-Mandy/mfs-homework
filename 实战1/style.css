@@ -311,3 +311,39 @@ hr {
     margin: 1em 0;
     border: 1px solid #303030;
 }
+
+.copyright {
+    background: #111;
+    font-size: 13px;
+    text-align: center;
+    color: #555;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    border-top: 1px solid #303030;
+}
+
+.copyright .copyright-content {
+    margin-right: -15px;
+    margin-left: -15px;
+    font-size: 13px;
+    text-align: center;
+    color: #555;
+}
+
+.copyright .copyright-main {
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.copyright span {
+    margin: 0 .5em;
+    font-size: 13px;
+    text-align: center;
+    color: #555;
+}
+
+.copyright a {
+    text-decoration-line: none;
+    color: #555;
+}
