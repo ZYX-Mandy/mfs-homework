@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>码蜂社标题</title>
+    <style>
+        .container {
+            width: 400px;
+            height: 300px;
+            position: relative;
+        }
+        
+        .box {
+            width: 300px;
+            height: 150px;
+            position: absolute;
+            border: 2px solid black;
+            border-radius: 10px;
+            top: 100px;
+            left: 200px;
+        }
+        
+        .circle {
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            border-radius: 30px;
+            background-color: #ffe502;
+            top: 150px;
+            left: 170px;
+        }
+        
+        .tan {
+            width: 0px;
+            height: 0px;
+            border: 50px solid #ffe502;
+            border-top: 45px solid #ffe502;
+            border-bottom: 55px solid transparent;
+            border-left: 45px solid transparent;
+            border-right: 55px solid transparent;
+            position: absolute;
+            top: 70px;
+            left: 360px;
+            transform: rotate(70deg);
+        }
+        
+        .title1 {
+            font-size: 17px;
+            line-height: 30px;
+            position: absolute;
+            top: 35px;
+            left: 79px;
+        }
+        
+        .title2 {
+            font-size: 40px;
+            position: absolute;
+            top: 65px;
+            left: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <span class="title1">SHARED COURSE</span>
+            <br/>
+            <span class="title2">课程分享</span>
+        </div>
+        <div class="circle"></div>
+        <div class="tan"></div>
+    </div>
+</body>
+
+</html>
