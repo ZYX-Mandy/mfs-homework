@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*方法一：行内元素
+        .container {
+            text-align: center;
+            height: 100px;
+            background-color: lightblue;
+        }
+        
+        .item {
+            display: inline;
+            line-height: 100px;
+        }*/
+        /*方法二*/
+        /* .container {
+            position: relative;
+            height: 100px;
+            width: 100%;
+            background-color: lightblue;
+            text-align: center;
+        }
+        
+        .item {
+            display: inline-block;
+            vertical-align: middle;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 20px;
+            margin: auto;
+        } */
+        /*方法三*/
+        
+        .container {
+            display: flex;
+            height: 100px;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item">
+            this is item
+        </div>
+    </div>
+</body>
+
+</html>
