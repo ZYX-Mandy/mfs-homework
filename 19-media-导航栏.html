@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>导航栏</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 400;
+        }
+        
+        .nav-header {
+            display: inline-block;
+            background-color: #ddd;
+            border: 1px solid #777;
+            margin: 0;
+            padding: 10px 15px;
+        }
+        
+        .nav-con {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .nav-con>li {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 0px;
+            background-color: #ddd;
+            border: 1px solid #777;
+        }
+        
+        a:hover {
+            color: black;
+        }
+        
+        .link:focus {
+            color: black;
+            background-color: #777;
+        }
+        
+        .link:active {
+            color: black;
+            background-color: #777;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-toggle {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            text-align: left;
+            white-space: nowrap;
+            position: absolute;
+            border: 1px solid #555;
+            padding: 0;
+            margin: 0;
+            top: 100%;
+            left: 0;
+            z-index: -1;
+        }
+        
+        .dropdown-menu li {
+            padding: 5px 10px;
+        }
+        
+        .dropdown-menu .divider {
+            height: 0;
+            padding: 0;
+            margin: 0;
+            border: 1px solid #ddd;
+        }
+        
+        .caret {
+            border: 5px solid transparent;
+            border-top-color: black;
+            position: absolute;
+            top: 50%;
+            right: 0%;
+        }
+        
+        @media screen and (min-width: 768px) {
+            .link {
+                float: left;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .link {
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+            }
+            .dropdown-menu {
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+        function display() {
+            var traget = document.getElementById('dp');
+            if (traget.style.display == "none") {
+                traget.style.display = "block";
+            } else {
+                traget.style.display = "none";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-header link">
+            <a class="nav-brand" href="#">菜鸟教程</a>
+        </div>
+        <div>
+            <ul class="nav-con">
+                <li class="link"><a href="#">iOS</a></li>
+                <li class="link"><a href="#">SVN</a></li>
+                <li class="dropdown link" onclick="display()">
+                    <a href="#" class="dropdown-toggle">
+                      Java&nbsp;&nbsp;&nbsp;
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu " id="dp">
+                        <li><a href="# ">jmeter</a></li>
+                        <li><a href="# ">EJB</a></li>
+                        <li><a href="# ">Jasper Report</a></li>
+                        <li class="divider "></li>
+                        <li><a href="# ">分离的链接</a></li>
+                        <li class="divider "></li>
+                        <li><a href="# ">另一个分离的链接</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</body>
+
+</html>
