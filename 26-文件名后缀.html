@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取文件后缀名</title>
+</head>
+
+<body>
+    <script>
+        var str = "a.abcd.html";
+        //方法一
+        //var r = str.split(".")[str.split(".").length - 1];
+        //方法二
+        var r = str.slice(str.lastIndexOf(".") + 1, str.length);
+        //写成函数
+        // function getSuffix(file) {
+        //     return file.slice(file.lastIndexOf(".") + 1, file.length);
+        // }
+
+        console.log(r);
+    </script>
+</body>
+
+</html>
