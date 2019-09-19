@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首字母大写</title>
+</head>
+
+<body>
+    <script>
+        var str = "I love pyo ji hoon!";
+        var temp = str.split(" ");
+        var i;
+        for (i = 0; i < temp.length; i++) {
+            temp[i] = temp[i][0].toUpperCase() + temp[i].slice(1);
+        }
+        str = temp.join(" ");
+        console.log(str);
+    </script>
+</body>
+
+</html>
