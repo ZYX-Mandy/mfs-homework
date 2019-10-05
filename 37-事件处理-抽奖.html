@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #award {
+            text-align: center;
+            line-height: 50px;
+            margin: 10px 10px;
+            width: 300px;
+            height: 50px;
+        }
+        
+        .awards {
+            font-size: 20px;
+        }
+        
+        .action {
+            margin: 10px 10px;
+            width: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="award">点击“开始“按钮，开始抽奖！</div>
+    <div class="action">
+        <button id="start">开 始</button>
+        <button id="stop">停 止</button>
+    </div>
+    <!-- <div id="displayAward"></div> -->
+    <script>
+        var r;
+        var run = false;
+        var inter = null;
+        document.getElementById("start").addEventListener("click", function() {
+            run = true;
+            Award();
+        });
+        document.getElementById("stop").addEventListener("click", function() {
+            run = false;
+            Award();
+        });
+
+        function Award() {
+            if (run == true) {
+                inter = setInterval(function() {
+                    r = Math.floor(Math.random() * 100); //获取0-99随机整数
+                    if (r == 0) {
+                        document.getElementById("award").className = "awards";
+                        document.getElementById("award").style.color = "red";
+                        document.getElementById("award").innerHTML = "特等奖";
+                    } else if (r >= 1 && r <= 10) {
+                        document.getElementById("award").className = "awards";
+                        document.getElementById("award").style.color = "orange";
+                        document.getElementById("award").innerHTML = "一等奖";
+                    } else if (r >= 11 && r <= 40) {
+                        document.getElementById("award").className = "awards";
+                        document.getElementById("award").style.color = "blue";
+                        document.getElementById("award").innerHTML = "二等奖";
+                    } else if (r >= 41 && r <= 80) {
+                        document.getElementById("award").className = "awards";
+                        document.getElementById("award").style.color = "green";
+                        document.getElementById("award").innerHTML = "三等奖";
+                    } else {
+                        document.getElementById("award").className = "awards";
+                        document.getElementById("award").style.color = "black";
+                        document.getElementById("award").innerHTML = "鼓励奖";
+                    }
+                }, 100);
+            } else {
+                clearInterval(inter);
+            }
+        }
+    </script>
+</body>
+
+</html>
