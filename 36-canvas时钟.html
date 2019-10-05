@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="refresh" content="1">
+    <title>时钟</title>
+</head>
+
+<body>
+    <canvas id="test" width="200" height="200" style="border:1px solid #c3c3c3;"></canvas>
+    <script type="text/javascript">
+        // function myrefresh() {
+        //     window.location.reload();
+        // }
+        // setTimeout('myrefresh()', 1000);
+
+        //建立画布
+        var canvas = document.getElementById('test');
+        var ctx = canvas.getContext('2d');
+        //获取当前时间
+        var date = new Date();
+        var h = date.getHours();
+        var m = date.getMinutes();
+        var s = date.getSeconds();
+
+
+        ctx.translate(100, 100);
+
+        //外圆轮廓
+        ctx.strokeStyle = "#1122aa";
+        ctx.lineWidth = 5;
+        ctx.beginPath();
+        ctx.arc(0, 0, 80, 0, Math.PI * 2, true);
+        ctx.closePath();
+        ctx.stroke();
+
+
+
+        //小时刻度
+        ctx.beginPath();
+        ctx.strokeStyle = "#000000";
+        ctx.lineWidth = 3;
+        ctx.lineCap = "round";
+        for (var i = 0; i < 12; i++) {
+            var t = Math.PI / 6 * i;
+            var x = 70 * Math.cos(t);
+            var y = 70 * Math.sin(t);
+            ctx.moveTo(x, y);
+            ctx.lineTo(0.8 * x, 0.8 * y);
+        }
+        ctx.stroke();
+
+        //分钟刻度
+        ctx.beginPath();
+        ctx.lineWidth = 2;
+        ctx.lineCap = "round";
+        for (var i = 0; i < 60; i++) {
+            var t = Math.PI / 30 * i;
+            var x = 70 * Math.cos(t);
+            var y = 70 * Math.sin(t);
+            ctx.moveTo(x, y);
+            ctx.lineTo(0.95 * x, 0.95 * y);
+        }
+        ctx.stroke();
+
+        //时针
+        ctx.beginPath();
+        ctx.lineWidth = 5;
+        ctx.lineCap = "round";
+        var t = (Math.PI / 6) * h - Math.PI / 2;
+        ctx.moveTo(-8 * Math.cos(t), -8 * Math.sin(t));
+        ctx.lineTo(30 * Math.cos(t), 30 * Math.sin(t));
+        ctx.stroke();
+
+        //分针
+        ctx.beginPath();
+        ctx.lineWidth = 4;
+        ctx.lineCap = "round";
+        var t = (Math.PI / 30) * m - Math.PI / 2;
+        ctx.moveTo(-11 * Math.cos(t), -11 * Math.sin(t));
+        ctx.lineTo(40 * Math.cos(t), 40 * Math.sin(t));
+        ctx.stroke();
+
+        //秒针
+        ctx.beginPath();
+        ctx.strokeStyle = "#ff0000";
+        ctx.lineWidth = 3;
+        ctx.lineCap = "round";
+        var t = (Math.PI / 30) * s - Math.PI / 2;
+        ctx.moveTo(-15 * Math.cos(t), -15 * Math.sin(t));
+        ctx.lineTo(44 * Math.cos(t), 44 * Math.sin(t));
+        ctx.stroke();
+
+        //秒针圆
+        ctx.beginPath();
+        var t = (Math.PI / 30) * s - Math.PI / 2;
+        ctx.arc(47 * Math.cos(t), 47 * Math.sin(t), 4, 0, Math.PI * 2, true);
+        ctx.closePath();
+        ctx.stroke();
+        //盘心
+        ctx.beginPath();
+        ctx.arc(0, 0, 3, 0, Math.PI * 2, true);
+        ctx.closePath();
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.strokeStyle = "#000000";
+        ctx.arc(0, 0, 0.5, 0, Math.PI * 2, true);
+        ctx.closePath();
+        ctx.stroke();
+    </script>
+</body>
+
+</html>
