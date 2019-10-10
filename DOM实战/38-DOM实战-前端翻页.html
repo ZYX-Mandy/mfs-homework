@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+</head>
+
+
+<body>
+    <div class="banner"></div>
+    <div id="list" class="list">
+    </div>
+    <script>
+        var oList = document.getElementById("list");
+        var N = 50;
+        var data = [];
+
+        function createItem(no, title, clickTime, replyTime) {
+            var item = document.createElement("div");
+            item.setAttribute("class", "item");
+            var html = '<div class="no">' + no + '</div>' +
+                '<div class="title">' + title + '</div>' +
+                '<div class="Info1"><span class="icon iconfont icon-yanjing"></span>' + clickTime +
+                '<span class="icon iconfont icon-icon_huifu-xian"></span>' + replyTime + '</div>' +
+                '<div class="Info2"><span class="icon iconfont icon-xiaolian"></span></div>'
+            item.innerHTML = html;
+            return item;
+        }
+
+        for (var i = 0; i < N; i++) {
+            data.push({
+                no: i + 1,
+                title: "标题" + (i + 1),
+                clickTime: (i + 1) * 10,
+                replyTime: (i + 1) * 10
+            })
+        }
+
+        function createPagerItem(no) {
+            var pageitems = document.createElement('div');
+            pageitems.setAttribute('class', 'pageitem');
+            pageitems.innerHTML = no;
+            return pageitems;
+        }
+
+        function createPager(N) {
+            var pageAmount = N / 12;
+            var pagers = document.createElement('div');
+            var oBody = document.getElementsByTagName('body');
+            oBody[0].appendChild(pagers);
+            pagers.setAttribute('class', 'pager');
+            pagers.appendChild(createPagerItem(1));
+            for (var i = 1; i < pageAmount; i++) {
+                pagers.appendChild(createPagerItem(i + 1));
+            }
+        }
+
+        function getData(page) {
+            return data.slice(page * 12, page * 12 + 12);
+        }
+
+        function fillDom(page) {
+            //清除所有子结点
+            while (oList.hasChildNodes()) {
+                oList.removeChild(oList.lastChild);
+            }
+            var data = getData(page);
+            var dom = data.map(function(i) {
+                return createItem(i.no, i.title, i.clickTime, i.replyTime);
+            });
+            dom.forEach(function(i) {
+                oList.appendChild(i);
+            });
+        }
+        fillDom(0);
+        createPager(N);
+
+        var pages = document.querySelectorAll(".pager .pageitem");
+        for (let i = 0; i < pages.length; i++) {
+            pages[i].addEventListener("click", function() {
+                fillDom(i)
+            });
+        }
+    </script>
+</body>
+
+</html>

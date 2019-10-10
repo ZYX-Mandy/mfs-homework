@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="signup" action="#" target="_blank">
+        <p id="signup-error" style="color:red"></p>
+        <p>
+            用户名:
+            <input id="username" type="text" name="username">
+        </p>
+        <p>
+            口令:
+            <input type="password" id="password" name="password">
+        </p>
+        <p>
+            重复口令:
+            <input type="password" id="password-2">
+        </p>
+        <p>
+            <button type="submit">提交</button>
+            <button type="reset">重置</button>
+        </p>
+
+        <script>
+            document.getElementById("signup").onsubmit = onSignupForSubmit;
+
+            function onSignupForSubmit() {
+                var onUsername = document.getElementById("username");
+                var onPassword = document.getElementById("password");
+                var onPassword2 = document.getElementById("password-2");
+                var onError = document.getElementById("signup-error");
+
+                var Username = onUsername.value;
+                var Password = onPassword.value;
+                var Password2 = onPassword2.value;
+                if (Username.length > 16 || Username.length < 6) {
+                    //alert("用户名长度必须大于等于6小于等于16！");
+                    onError.innerText = "用户名长度必须大于等于6小于等于16！";
+                    return false;
+                }
+                if (/^[A-Za-z]/.test(Username) == false) {
+                    //alert("用户名必须以字母开头！");
+                    onError.innerText = "用户名必须以字母开头！";
+                    return false;
+                }
+                if (/\W/.test(Username) == true) {
+                    onError.innerText = "用户名必须为字母数字或下划线！";
+                    return false;
+                }
+
+                if (Password.length > 20 || Password.length < 8) {
+                    //alert("密码长度必须大于等于8小于等于20！");
+                    onError.innerText = "密码长度必须大于等于8小于等于20！";
+                    return false;
+                }
+                if (/^[\u4e00-\u9fa5]{0,}$/.test(Username) == true) {
+                    onError.innerText = "口令必须为字母数字下划线或特殊字符！";
+                    return false;
+                }
+                if (Password2 != Password) {
+                    //alert("重复口令与口令不一致！");
+                    onError.innerText = "重复口令与口令不一致！";
+                    return false;
+                }
+
+                console.log(onUsername.value, onPassword.value, onPassword2.value);
+
+                return true;
+            }
+        </script>
+
+    </form>
+
+
+</body>
+
+</html>

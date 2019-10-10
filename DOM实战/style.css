@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+}
+
+.banner {
+    background: url(https://work.mafengshe.com//static/imgs/banner.jpg);
+    height: 270px;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.item {
+    width: 22%;
+    height: 148px;
+    background: #4ce19c;
+    margin: 20px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.item .no {
+    height: 70px;
+    width: 70px;
+    border-radius: 35px;
+    background: #28b6d2;
+    text-align: center;
+    line-height: 70px;
+    font-weight: bold;
+    font-size: 25px;
+    position: absolute;
+    top: -15px;
+    left: -15px;
+}
+
+.item .title {
+    height: 40px;
+    background: #00474c;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    font-size: 14px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.item .Info1 {
+    position: absolute;
+    right: 5px;
+    top: 2px;
+    color: white;
+    font-size: 16px;
+}
+
+.item .Info1 span {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.item .Info2 {
+    position: absolute;
+    left: 130px;
+    top: 25px;
+    color: black;
+    font-size: 50px;
+}
+
+.pager {
+    display: flex;
+    height: 50px;
+    margin: 20px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.pager .pageitem {
+    text-align: center;
+    line-height: 25px;
+    width: 25px;
+    height: 25px;
+    color: black;
+}
+
+.pager .pageitem:hover {
+    background: rgb(255, 131, 109);
+}
