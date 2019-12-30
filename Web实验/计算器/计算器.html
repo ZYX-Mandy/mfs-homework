@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>计算器</title>
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+</head>
+<style>
+    .calculator {
+        width: 500px;
+        height: 500px;
+        background: grey;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        border-radius: 3px;
+    }
+    
+    .text {
+        width: 470px;
+        height: 80px;
+        background: white;
+        margin-top: 15px;
+        border-radius: 3px;
+        display: flex;
+        flex-wrap: wrap;
+        overflow: hidden;
+    }
+    
+    #display {
+        width: 470px;
+        height: 30px;
+        background: white;
+        text-align: end;
+        line-height: 30px;
+        font-size: 18px;
+        font-family: Arial;
+    }
+    
+    #input {
+        width: 470px;
+        height: 50px;
+        background: white;
+        text-align: end;
+        line-height: 50px;
+        font-size: 32px;
+        font-family: Arial;
+    }
+    
+    .keys {
+        display: flex;
+        width: 470px;
+        height: 375px;
+        background: grey;
+        position: relative;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 3px;
+    }
+    
+    .del {
+        width: 168px;
+        height: 68px;
+        line-height: 68px;
+        border-radius: 3px;
+        margin-left: 3px;
+    }
+    
+    .key {
+        width: 110px;
+        height: 68px;
+        line-height: 68px;
+        border-radius: 3px;
+        margin-left: 3px;
+    }
+    
+    .num {
+        border: 2px solid white;
+        background: white;
+        font-size: 23px;
+        font-family: Arial;
+        font-weight: bold;
+    }
+    
+    .sign {
+        border: 2px solid #f1f1f1;
+        background: #f1f1f1;
+        font-size: 23px;
+        font-family: Arial;
+    }
+    
+    #minus {
+        font-size: 45px;
+    }
+    
+    .num:hover {
+        border: 2px solid #b5b5b5;
+        background: #d5d5d5;
+    }
+    
+    .num:active {
+        border: 2px solid #a3a3a3;
+        background: #c3c3c3;
+    }
+    
+    .unary:hover {
+        border: 2px solid #b5b5b5;
+        background: #d5d5d5;
+    }
+    
+    .unary:active {
+        border: 2px solid #a3a3a3;
+        background: #c3c3c3;
+    }
+    
+    .binary:hover {
+        border: 2px solid rgb(96, 164, 154);
+        background: rgb(27, 186, 159);
+    }
+    
+    .binary:active {
+        border: 2px solid rgb(122, 209, 196);
+        background: rgb(107, 224, 205);
+    }
+</style>
+
+<body>
+    <div class="calculator">
+        <div class="text">
+            <div id="display"></div>
+            <div id="input"></div>
+        </div>
+        <div class="keys">
+            <div class="unary sign del" id="clear" onclick="Clear()">C</div>
+            <div class="unary sign del icon iconfont icon-qingchu" id="delete" onclick="Delete()"></div>
+            <div class="binary sign key icon iconfont icon-chuhao" id="divide" onclick="Divide()"></div>
+            <div class="num key" id="seven" onclick="Seven()">7</div>
+            <div class="num key" id="eight" onclick="Eight()">8</div>
+            <div class="num key" id="nine" onclick="Nine()">9</div>
+            <div class="binary sign key icon iconfont icon-chenghao" id="multiply" onclick="Multiply()"></div>
+            <div class="num key" id="four" onclick="Four()">4</div>
+            <div class="num key" id="five" onclick="Five()">5</div>
+            <div class="num key" id="six" onclick="Six()">6</div>
+            <div class="binary sign key icon iconfont icon-iconfontmove" id="subtract" onclick="Subtract()"></div>
+            <div class="num key" id="one" onclick="One()">1</div>
+            <div class="num key" id="two" onclick="Two()">2</div>
+            <div class="num key" id="three" onclick="Three()">3</div>
+            <div class="binary sign key icon iconfont icon-jiahao" id="add" onclick="Add()"></div>
+            <div class="unary sign key icon iconfont icon-zhengfuhao-" id="minus" onclick="Minus()"></div>
+            <div class="num key" id="zero" onclick="Zero()">0</div>
+            <div class="unary sign key icon iconfont icon-xiaoshudian" id="point" onclick="Point()"></div>
+            <div class="binary sign key icon iconfont icon-denghao" id="equal" onclick="Equal()"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var number = 0; //当前输入的数字
+        var length = 0; //当前输入算式的长度
+        var result = 0; //记录运算结果
+        var cal = "n"; //记录当前输入的是数字或是什么符号
+        var cal_2 = "+"; //记录刚输入的运算符是哪个
+
+        var odisplay = document.getElementById("display");
+        var oinput = document.getElementById("input");
+
+        odisplay.innerHTML = "";
+        oinput.innerHTML = "0";
+
+        //document.getElementById("one").addEventListener("click", One());
+
+        function One() {
+            cal = "n";
+            if (cal_2 == "=") {
+                odisplay.innerHTML = "";
+                oinput.innerHTML = "1"
+                cal_2 = "+";
+                return;
+            }
+            if (oinput.innerHTML == "0") {
+                oinput.innerHTML = "1";
+            } else {
+                oinput.innerHTML = oinput.innerHTML + "1";
+            }
+        }
+
+        function Two() {
+            cal = "n";
+            if (cal_2 == "=") {
+                odisplay.innerHTML = "";
+                oinput.innerHTML = "2"
+                cal_2 = "+";
+                return;
+            }
+            if (oinput.innerHTML == "0") {
+                oinput.innerHTML = "2";
+            } else {
+                oinput.innerHTML = oinput.innerHTML + "2";
+            }
+        }
+
+        function Three() {
+            cal = "n";
+            if (cal_2 == "=") {
+                odisplay.innerHTML = "";
+                oinput.innerHTML = "3"
+                cal_2 = "+";
+                return;
+            }
+            if (oinput.innerHTML == "0") {
+                oinput.innerHTML = "3";
+            } else {
+                oinput.innerHTML = oinput.innerHTML + "3";
+            }
+        }
+
+        function Four() {
+            cal = "n";
+            if (cal_2 == "=") {
+                odisplay.innerHTML = "";
+                oinput.innerHTML = "4"
+                cal_2 = "+";
+                return;
+            }
+            if (oinput.innerHTML == "0") {
+                oinput.innerHTML = "4";
+            } else {
+                oinput.innerHTML = oinput.innerHTML + "4";
+            }
+        }
+
+        function Five() {
+            cal = "n";
+            if (cal_2 == "=") {
+                odisplay.innerHTML = "";
+                oinput.innerHTML = "5"
+                cal_2 = "+";
+                return;
+            }
+            if (oinput.innerHTML == "0") {
+                oinput.innerHTML = "5";
+            } else {
+                oinput.innerHTML = oinput.innerHTML + "5";
+            }
+        }
+
+        function Six() {
+            cal = "n";
+            if (cal_2 == "=") {
+                odisplay.innerHTML = "";
+                oinput.innerHTML = "6"
+                cal_2 = "+";
+                return;
+            }
+            if (oinput.innerHTML == "0") {
+                oinput.innerHTML = "6";
+            } else {
+                oinput.innerHTML = oinput.innerHTML + "6";
+            }
+        }
+
+        function Seven() {
+            cal = "n";
+            if (cal_2 == "=") {
+                odisplay.innerHTML = "";
+                oinput.innerHTML = "7"
+                cal_2 = "+";
+                return;
+            }
+            if (oinput.innerHTML == "0") {
+                oinput.innerHTML = "7";
+            } else {
+                oinput.innerHTML = oinput.innerHTML + "7";
+            }
+        }
+
+        function Eight() {
+            cal = "n";
+            if (cal_2 == "=") {
+                odisplay.innerHTML = "";
+                oinput.innerHTML = "8"
+                cal_2 = "+";
+                return;
+            }
+            if (oinput.innerHTML == "0") {
+                oinput.innerHTML = "8";
+            } else {
+                oinput.innerHTML = oinput.innerHTML + "8";
+            }
+        }
+
+        function Nine() {
+            cal = "n";
+            if (cal_2 == "=") {
+                odisplay.innerHTML = "";
+                oinput.innerHTML = "9"
+                cal_2 = "+";
+                return;
+            }
+            if (oinput.innerHTML == "0") {
+                oinput.innerHTML = "9";
+            } else {
+                oinput.innerHTML = oinput.innerHTML + "9";
+            }
+        }
+
+        function Zero() {
+            cal = "n";
+            if (cal_2 == "=") {
+                odisplay.innerHTML = "";
+                oinput.innerHTML = "0"
+                cal_2 = "+";
+                return;
+            }
+            if (oinput.innerHTML == "0") {
+                oinput.innerHTML = "0";
+            } else {
+                oinput.innerHTML = oinput.innerHTML + "0";
+            }
+        }
+
+        function Delete() {
+            if (cal_2 == "=") {
+                return;
+            }
+            length = oinput.innerHTML.length - 1;
+            if (length == 0) {
+                oinput.innerHTML = "0";
+            } else {
+                oinput.innerHTML = oinput.innerHTML.substr(0, length);
+            }
+        }
+
+        function Clear() {
+            number = 0;
+            length = 0;
+            result = 0;
+            cal = "n";
+            cal_2 = "+";
+            oinput.innerHTML = "0";
+            odisplay.innerHTML = "";
+        }
+
+        function Minus() {
+            cal = "n";
+            if (cal_2 == "=") {
+                odisplay.innerHTML = "";
+                cal_2 = "+";
+            }
+            oinput.innerHTML = -(oinput.innerHTML);
+        }
+
+        function Point() {
+            if (cal_2 == "=") {
+                odisplay.innerHTML = "";
+                oinput.innerHTML = "0" + ".";
+                cal = ".";
+                cal_2 = "+";
+                return;
+            }
+            if (cal == ".") {
+                oinput.innerHTML = oinput.innerHTML;
+            } else {
+                oinput.innerHTML = oinput.innerHTML + ".";
+            }
+            cal = ".";
+        }
+
+        function Add() {
+            number = parseFloat(oinput.innerHTML);
+            if (cal_2 == "+") {
+                result = result + number;
+            } else if (cal_2 == "-") {
+                result = result - number;
+            } else if (cal_2 == "×") {
+                result = result * number;
+            } else if (cal_2 == "÷") {
+                result = result / number;
+            } else {
+                return;
+            }
+            odisplay.innerHTML = odisplay.innerHTML + oinput.innerHTML + "+";
+            cal = "+";
+            cal_2 = "+";
+            oinput.innerHTML = "0";
+        }
+
+        function Subtract() {
+            number = parseFloat(oinput.innerHTML);
+            if (cal_2 == "+") {
+                result = result + number;
+            } else if (cal_2 == "-") {
+                result = result - number;
+            } else if (cal_2 == "×") {
+                result = result * number;
+            } else if (cal_2 == "÷") {
+                result = result / number;
+            } else {
+                return;
+            }
+            odisplay.innerHTML = odisplay.innerHTML + oinput.innerHTML + "-";
+            cal = "-";
+            cal_2 = "-";
+            oinput.innerHTML = "0";
+        }
+
+        function Multiply() {
+            number = parseFloat(oinput.innerHTML);
+            if (cal_2 == "+") {
+                result = result + number;
+            } else if (cal_2 == "-") {
+                result = result - number;
+            } else if (cal_2 == "×") {
+                result = result * number;
+            } else if (cal_2 == "÷") {
+                result = result / number;
+            } else {
+                return;
+            }
+            odisplay.innerHTML = odisplay.innerHTML + oinput.innerHTML + "×";
+            cal = "×";
+            cal_2 = "×";
+            oinput.innerHTML = "0";
+        }
+
+        function Divide() {
+            number = parseFloat(oinput.innerHTML);
+            if (cal_2 == "+") {
+                result = result + number;
+            } else if (cal_2 == "-") {
+                result = result - number;
+            } else if (cal_2 == "×") {
+                result = result * number;
+            } else if (cal_2 == "÷") {
+                result = result / number;
+            } else {
+                return;
+            }
+            odisplay.innerHTML = odisplay.innerHTML + oinput.innerHTML + "÷";
+            cal = "÷";
+            cal_2 = "÷";
+            oinput.innerHTML = "0";
+        }
+
+        function Equal() {
+            number = parseFloat(oinput.innerHTML);
+            if (cal_2 == "+") {
+                result = result + number;
+            } else if (cal_2 == "-") {
+                result = result - number;
+            } else if (cal_2 == "×") {
+                result = result * number;
+            } else if (cal_2 == "÷") {
+                result = result / number;
+            } else {
+                return;
+            }
+            odisplay.innerHTML = odisplay.innerHTML + oinput.innerHTML + "=";
+            oinput.innerHTML = result;
+            result = 0;
+            cal = "=";
+            cal_2 = "=";
+        }
+    </script>
+</body>
+
+</html>

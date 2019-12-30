@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>时钟</title>
+    <style>
+        body {
+            display: flex;
+            position: relative;
+        }
+        
+        canvas {
+            position: absolute;
+            top: 10px;
+            left: 50px;
+        }
+        
+        #time {
+            position: absolute;
+            width: 300px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            top: 230px;
+            left: 15px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="clock" width="220" height="220"></canvas>
+    <div id="time">zheli</div>
+    <script type="text/javascript">
+        var time = document.getElementById("time");
+        //建立画布
+        var canvas = document.getElementById("clock");
+        var ctx = canvas.getContext("2d");
+
+        var width = ctx.canvas.width;
+        var height = ctx.canvas.height;
+
+        function drawBackground() {
+            ctx.save();
+            //平移中心
+            ctx.translate(110, 110);
+            //时钟外圆轮廓
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = 5;
+            ctx.beginPath();
+            ctx.arc(0, 0, 100, 0, Math.PI * 2, true);
+            ctx.closePath();
+            ctx.stroke();
+            //小时刻度
+            ctx.beginPath();
+            ctx.strokeStyle = "balck";
+            ctx.lineWidth = 4;
+            ctx.lineCap = "round";
+            for (var i = 0; i < 12; i++) {
+                var t = Math.PI / 6 * i;
+                var x = 90 * Math.cos(t);
+                var y = 90 * Math.sin(t);
+                ctx.moveTo(x, y);
+                ctx.lineTo(0.8 * x, 0.8 * y);
+            }
+            ctx.stroke();
+
+            //分钟刻度
+            ctx.beginPath();
+            ctx.strokeStyle = "balck";
+            ctx.lineWidth = 2;
+            ctx.lineCap = "round";
+            for (var i = 0; i < 60; i++) {
+                var t = Math.PI / 30 * i;
+                var x = 90 * Math.cos(t);
+                var y = 90 * Math.sin(t);
+                ctx.moveTo(x, y);
+                ctx.lineTo(0.93 * x, 0.93 * y);
+            }
+            ctx.stroke();
+        }
+
+        function drawTime(h, m, s) {
+            ctx.save();
+            //时针
+            var s_m = s / 60;
+            var s_h = s / 3600;
+            var m_h = m / 60;
+            ctx.beginPath();
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = 6;
+            ctx.lineCap = "round";
+            var t = (Math.PI / 6) * (h + s_h + m_h) - Math.PI / 2;
+            ctx.moveTo(-8 * Math.cos(t), -8 * Math.sin(t));
+            ctx.lineTo(41 * Math.cos(t), 41 * Math.sin(t));
+            ctx.stroke();
+            //分针
+            ctx.beginPath();
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = 4;
+            ctx.lineCap = "round";
+            var t = (Math.PI / 30) * (m + s_m) - Math.PI / 2;
+            ctx.moveTo(-12 * Math.cos(t), -12 * Math.sin(t));
+            ctx.lineTo(52 * Math.cos(t), 52 * Math.sin(t));
+            ctx.stroke();
+
+            //秒针
+            ctx.beginPath();
+            ctx.strokeStyle = "red";
+            ctx.lineWidth = 3;
+            ctx.lineCap = "round";
+            var t = (Math.PI / 30) * s - Math.PI / 2;
+            ctx.moveTo(-15 * Math.cos(t), -15 * Math.sin(t));
+            ctx.lineTo(55 * Math.cos(t), 55 * Math.sin(t));
+            ctx.stroke();
+
+            //秒针圆
+            ctx.beginPath();
+            var t = (Math.PI / 30) * s - Math.PI / 2;
+            ctx.arc(60 * Math.cos(t), 60 * Math.sin(t), 5, 0, Math.PI * 2, true);
+            ctx.closePath();
+            ctx.stroke();
+            //盘心
+            ctx.beginPath();
+            ctx.arc(0, 0, 3, 0, Math.PI * 2, true);
+            ctx.closePath();
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.strokeStyle = "#000000";
+            ctx.arc(0, 0, 0.5, 0, Math.PI * 2, true);
+            ctx.closePath();
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        function Time(y, mon, d, h, m, s) {
+            var str = y + "年&nbsp" + mon + "月&nbsp" + d + "日&nbsp" + h + "&nbsp:&nbsp" + m + "&nbsp:&nbsp" + s;
+            time.innerHTML = str;
+        }
+
+        function Draw() {
+            ctx.clearRect(0, 0, width, height);
+            //获取当前时间
+            var date = new Date();
+            var y = date.getFullYear();
+            var mon = date.getMonth();
+            var d = date.getDay();
+            var h = date.getHours();
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+            drawBackground();
+            drawTime(h, m, s);
+            Time(y, mon, d, h, m, s);
+            ctx.restore();
+        }
+        Draw();
+        setInterval(Draw, 1000);
+    </script>
+
+</body>
+
+</html>

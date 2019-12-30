@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片浏览器</title>
+    <link rel="stylesheet" href="Main.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #container {
+            width: 700px;
+            margin: 0 auto;
+            font-size: 0;
+        }
+        
+        #container li {
+            display: inline-block;
+            width: 32%;
+            margin-left: 1%;
+            padding-top: 1%;
+        }
+        
+        #container li img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="container">
+        <li><img data-original="img/img-1.jpg" src="img/source/img-1.jpg" alt="图片1"></li>
+        <li><img data-original="img/img-2.jpg" src="img/source/img-2.jpg" alt="图片2"></li>
+        <li><img data-original="img/img-3.jpg" src="img/source/img-3.jpg" alt="图片3"></li>
+        <li><img data-original="img/img-4.jpg" src="img/source/img-4.jpg" alt="图片4"></li>
+        <li><img data-original="img/img-5.jpg" src="img/source/img-5.jpg" alt="图片5"></li>
+        <li><img data-original="img/img-6.jpg" src="img/source/img-6.jpg" alt="图片6"></li>
+    </ul>
+    <script src="Viewer.js"></script>
+    <script>
+        var viewer = new Viewer(document.getElementById('container'), {
+            url: 'data-original'
+        });
+    </script>
+</body>
+
+</html>
